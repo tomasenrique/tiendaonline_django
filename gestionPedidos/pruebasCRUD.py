@@ -1,6 +1,6 @@
 from gestionPedidos.models import Articulos
 
-# Aqui se va a realizar pruebas para hacer CRUD a la BBDD
+# Aqui se va a realizar pruebas para hacer CRUD a la BBDD de SqlLite
 
 # INSERT
 art1 = Articulos(nombre='mesa', seccion='decoracion', precio=90)
@@ -37,4 +37,21 @@ lista.query.__str__()  # Mostrara la query para mostrar los datos
 'SELECT "gestionPedidos_articulos"."id", "gestionPedidos_articulos"."nombre", "gestionPedidos_articulos"."seccion", "gestionPedidos_articulos"."precio" FROM "gestionPedidos_articulos"'
 
 # ======================================================================================================================
-#  Hay que probarlo desde la consola
+# ======================================================================================================================
+# ======================================================================================================================
+
+
+# Aqui se va a realizar pruebas para hacer CRUD a la BBDD de Postgree
+
+from gestionPedidos.models import Clientes
+
+cli1 = Clientes(nombre='Tomas', direccion='mi casa', telefono='640622')
+cli1.save()
+
+
+cli2 = Clientes.objects.create(nombre='Jonas', direccion='iberia', email='tomasenriquea@hotmail.com', telefono='123456')
+
+
+# ======================================================================================================================
+#  Hay que probarlo desde la consola ingresando usando:
+# python manage.py shell

@@ -7,8 +7,13 @@ from django.db import models
 class Clientes(models.Model):
     nombre = models.CharField(max_length=30)
     direccion = models.CharField(max_length=50)
-    email = models.EmailField()
-    telefono = models.CharField(max_length=7)
+    email = models.EmailField(blank=True, null=True)
+    telefono = models.CharField(max_length=10)
+
+
+"""
+ Al agregar 'blank=True, null=True' se hace que el campo sea opcional a la hora de crear un cliente en la web
+"""
 
 
 class Articulos(models.Model):
@@ -21,7 +26,7 @@ class Articulos(models.Model):
         return "El nombre es: %s - La sección es: %s - El precio es: %s" % (self.nombre, self.seccion, self.precio)
 
     """OJO
-        Cada vez que se haga modificaciones aqui, hay que volver a hacer las migraciones a la BBDD para que se agrega 
+        Cada vez que se haga modificaciones aqui, hay que volver a hacer las migraciones a la BBDD para que se agrege 
         este cambio y se pueda ver las consultas hechas en este caso.
         
         PRIMERO CON: python manage.py makemigrations
